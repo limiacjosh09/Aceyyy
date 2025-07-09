@@ -1,0 +1,356 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* default desktop */
+  gap: 35px 30px;
+  justify-content: center;
+  align-content: center;
+  place-items: center;
+    min-height: 100vh;
+
+  background: linear-gradient(to bottom right, #FFF1D5, #BDDDE4, #9EC6F3);
+}
+
+
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); 
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    padding: 30px 15px;
+  }
+  .pixel-title{
+    margin-top: 100px !important;
+  }
+}
+
+@keyframes fadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #FFF1D5, #BDDDE4, #9EC6F3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 1s ease-in-out;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+}
+
+
+.loading-text {
+  width: 100%;
+  font-size: 1.3rem;
+  color: #2e2e2e;
+  font-weight: 600;
+  margin-top: 30px;
+   font-family: 'Press Start 2P', monospace;
+  animation: fadeIn 1s ease-in;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+
+.heart-wrapper.diagonal {
+  position: relative;
+  width: 6em;
+  height: 6em;
+}
+
+.pixel-block.small {
+  width: 3em;
+  height: 2.5em;
+  animation: float 2.5s ease-in-out infinite;
+  position: absolute;
+}
+
+.heart-1 {
+  top: -17px;
+  left: -40px;
+}
+
+.heart-2 {
+  top: 2px;
+  left: 2.2em;
+}
+
+.heart-3 {
+  bottom: 0;
+  left: -15px;
+}
+
+.pixelized--heart {
+  width: 0.5em;
+  height: 0.5em;
+  box-shadow:
+    0.5em 0em #F22613,
+    1em 0em #F22613,
+    2em 0em #F22613,
+    2.5em 0em #F22613,
+
+    0em 0.5em #F22613,
+    0.5em 0.5em #F22613,
+    1em 0.5em #F22613,
+    1.5em 0.5em #F22613,
+    2em 0.5em #F22613,
+    2.5em 0.5em #F22613,
+    3em 0.5em #F22613,
+
+    0em 1em #F22613,
+    0.5em 1em #F22613,
+    1em 1em #F22613,
+    1.5em 1em #F22613,
+    2em 1em #F22613,
+    2.5em 1em #F22613,
+    3em 1em #F22613,
+
+    0.5em 1.5em #F22613,
+    1em 1.5em #F22613,
+    1.5em 1.5em #F22613,
+    2em 1.5em #F22613,
+    2.5em 1.5em #F22613,
+
+    1em 2em #F22613,
+    1.5em 2em #F22613,
+    2em 2em #F22613,
+
+    1.5em 2.5em #F22613;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.floating-heart-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px; 
+  width: 12px;
+  height: 12px;
+  background: #f88;
+  transform: rotate(45deg);
+  animation: floatUp 12s linear infinite;
+  opacity: 0.6;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background: #f88;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -6px;
+  left: 0;
+}
+
+.heart::after {
+  left: -6px;
+  top: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+
+.pixel-title {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #2d2d2d;
+  animation: pulse 1.5s ease-in-out infinite;
+  grid-column: 1 / -1; 
+  border: 1px solid #333;
+  background-color: #9EC6F3;
+  padding: 12px;
+  display: inline-block;
+  border-radius: 3px;
+box-shadow:1px 2px 0 rgba(68, 68, 68, 0.3);
+
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+.pixel-music-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.pixel-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #222;
+  border: 4px solid #444;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 #000;
+  transition: background 0.2s ease-in-out;
+  user-select: none;
+  z-index: 999;
+}
+
+
+.pixel-toggle-btn.active {
+  background: #4CAF50;
+  border-color: #3c983f;
+  color: #fff;
+}
+
+.pixel-toggle-btn .note {
+  font-size: 14px;
+}
+
+
+.pixel-camera-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 10000;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.pixel-camera-button:hover {
+  transform: scale(1.05);
+}
+
+.pixel-camera-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.pixel-camera-btn:hover {
+  transform: scale(1.05);
+}
+
+.cam-body {
+  position: relative;
+  width: 60px;
+  height: 36px;
+  background: #444;
+  border: 3px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cam-lens {
+  width: 20px;
+  height: 20px;
+  background: #9EC6F3;
+  border: 3px solid #f1f1f1;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.cam-top {
+  position: absolute;
+  top: -12px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6px;
+}
+
+.cam-shutter {
+  width: 8px;
+  height: 8px;
+  background: #777;
+  border: 2px solid #222;
+  border-radius: 2px;
+}
+
+.cam-flash {
+  width: 10px;
+  height: 6px;
+  background: #9EC6F3;
+  border: 1px solid #333;
+  border-radius: 1px;
+}
+
+.cam-strap {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 40px;
+  height: 6px;
+  margin-left: -20px;
+  background: #222;
+  border-radius: 10px;
+  margin-top: 3px;
+}

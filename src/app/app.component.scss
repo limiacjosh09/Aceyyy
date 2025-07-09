@@ -6,9 +6,9 @@
   align-content: center;
   place-items: center;
     min-height: 100vh;
-
   background: linear-gradient(to bottom right, #FFF1D5, #BDDDE4, #9EC6F3);
 }
+
 
 
 @media (max-width: 1024px) {
@@ -25,6 +25,7 @@
   }
   .pixel-title{
     margin-top: 100px !important;
+    font-size: 0.7rem !important;
   }
 }
 

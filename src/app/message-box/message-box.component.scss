@@ -9,6 +9,16 @@
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+@media screen and (min-width: 375px) and (max-width: 768px) {
+  .envelope {
+    width: 40vh;
+    height: 150px;
+  }
+  
+ 
+}
+
+
 .title {
   position: absolute;
   bottom: 100%;

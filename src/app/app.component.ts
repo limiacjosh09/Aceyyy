@@ -35,8 +35,8 @@ splashFadeOut = false;
     this.splashFadeOut = true; 
     setTimeout(() => {
       this.isLoading = false;
-    }, 1000); 
-  }, 2500); 
+    }, 750); 
+  }, 4000); 
 }
 
 

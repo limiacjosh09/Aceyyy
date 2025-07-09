@@ -62,11 +62,28 @@
   color: #2e2e2e;
   font-weight: 600;
   margin-top: 30px;
-   font-family: 'Press Start 2P', monospace;
-  animation: fadeIn 1s ease-in;
+  font-family: 'Press Start 2P', monospace;
   text-align: center;
   letter-spacing: 0.5px;
 }
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 6s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+
 
 
 .heart-wrapper.diagonal {
